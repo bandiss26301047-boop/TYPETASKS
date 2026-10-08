@@ -1,3 +1,4 @@
+// TypeTasks - typed task model and operations
 type TaskStatus = "todo" | "in-progress" | "done";
 
 interface Task {
