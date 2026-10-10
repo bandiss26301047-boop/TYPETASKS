@@ -1,7 +1,9 @@
-```ts
-export type TaskStatus = "todo" | "in-progress" | "done";
+export type T
+ // TypeTasks - typed task model and operations
 
-export interface Task {
+type TaskStatus = "todo" | "in-progress" | "done";
+
+interface Task {
   id: number;
   title: string;
   status: TaskStatus;
@@ -9,7 +11,7 @@ export interface Task {
 
 let nextId = 1;
 
-export function addTask(tasks: Task[], title: string): Task[] {
+function addTask(tasks: Task[], title: string): Task[] {
   const newTask: Task = {
     id: nextId++,
     title: title,
@@ -19,7 +21,7 @@ export function addTask(tasks: Task[], title: string): Task[] {
   return [...tasks, newTask];
 }
 
-export function completeTask(tasks: Task[], id: number): Task[] {
+function completeTask(tasks: Task[], id: number): Task[] {
   return tasks.map((task) =>
     task.id === id
       ? { ...task, status: "done" }
@@ -27,14 +29,14 @@ export function completeTask(tasks: Task[], id: number): Task[] {
   );
 }
 
-export function filterByStatus(
+function filterByStatus(
   tasks: Task[],
   status: TaskStatus
 ): Task[] {
   return tasks.filter((task) => task.status === status);
 }
 
-export function deleteTask(tasks: Task[], id: number): Task[] {
+// Extra operation
+function deleteTask(tasks: Task[], id: number): Task[] {
   return tasks.filter((task) => task.id !== id);
 }
-```
